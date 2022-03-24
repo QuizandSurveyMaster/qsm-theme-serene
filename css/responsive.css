@@ -1,0 +1,107 @@
+@media only screen and (max-width: 480px)  {
+  .quiz_theme_qsm-theme-serene.qsm-quiz-container:not(.qsm_auto_pagination_enabled){
+    padding: 20px 10px;
+  }
+  .quiz_theme_qsm-theme-serene .qsm-save-quiz::after, .quiz_theme_qsm-theme-serene .qsm-resume-quiz::after {
+    width: 33px;
+    height: 33px;
+    line-height: 33px;
+    top: -2px;
+    right: -8px;
+}
+  .qsm-svg-holder #svg-3 {
+    bottom: 30px;
+  }
+  .qsm-svg-holder #svg-1 {
+
+    bottom: 15px;
+  }
+  .qsm-quiz-container.quiz_theme_qsm-theme-serene .mlw_qmn_message_before
+  {
+    margin: 0;
+    width: 70%;
+    padding-left: 15px;
+    font-size: 12px;
+  }
+  .quiz_theme_qsm-theme-serene .qsm-welcome-screen, .quiz_theme_qsm-theme-serene:not(.qsm_random_quiz) .qsm-auto-page-row.quiz_begin
+  {
+    padding: 0 0 0 0;
+  }
+  .quiz_theme_qsm-theme-serene .margin-bottom.qmn_pagination
+  {
+    display: flex;
+    flex-direction: inherit;
+  }
+  .quiz_theme_qsm-theme-serene.qmn_quiz_container .qsm-save-quiz, .quiz_theme_qsm-theme-serene.qmn_quiz_container .qsm-resume-quiz, .quiz_theme_qsm-theme-serene .qmn_results_page .btn-reload-quiz
+  {
+    flex: auto;
+  }
+  .quiz_theme_qsm-theme-serene .qmn_btn.mlw_qmn_quiz_link.mlw_previous
+  {
+    text-align: left;
+    margin-top: -24px;
+  }
+  .quiz_theme_qsm-theme-serene.qmn_quiz_container .qmn_btn
+  {
+    right: 0;
+  }
+  .quiz_theme_qsm-theme-serene .qmn_btn.mlw_qmn_quiz_link.mlw_next {
+    position: absolute;
+    left: 50%;
+    margin-top: -30px;
+  }
+
+  .quiz_theme_qsm-theme-serene.qmn_quiz_container .quiz_begin .qmn_btn.mlw_qmn_quiz_link.mlw_next
+  {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+}
+@media only screen and (max-width: 767px) {
+  .qsm-svg-holder #svg-3 {
+
+    bottom: 30px;
+  }
+  .qsm-svg-holder #svg-1 {
+    bottom: 17px;
+  }
+  .qsm-quiz-container.quiz_theme_qsm-theme-serene .mlw_qmn_message_before
+  {
+    margin: 0;
+    width: 70%;
+    padding-left: 15px;
+    font-size: 12px;
+  }
+  .quiz_theme_qsm-theme-serene .qsm-welcome-screen, .quiz_theme_qsm-theme-serene:not(.qsm_random_quiz) .qsm-auto-page-row.quiz_begin
+  {
+    padding: 0;
+  }
+  .quiz_theme_qsm-theme-serene .margin-bottom
+  {
+    padding: 0 0 5px;
+  }
+
+	.quiz_theme_qsm-theme-serene .question-type-polar-s .left-polar-title,
+	.quiz_theme_qsm-theme-serene .question-type-polar-s .right-polar-title {
+		display: inline-block;
+		margin: 0px !important;
+		width: 50% !important;
+	}
+
+	.quiz_theme_qsm-theme-serene .question-type-polar-s .right-polar-title {
+		position: absolute;
+		right: 10px;
+	}
+
+	.quiz_theme_qsm-theme-serene .qsm-results-page .question-type-polar-s .right-polar-title {
+		position: absolute;
+		top: 5px;
+	}
+
+	.quiz_theme_qsm-theme-serene .qmn_image_option {
+		width: 97% !important;
+	}
+}
