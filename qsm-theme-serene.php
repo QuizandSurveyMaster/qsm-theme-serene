@@ -95,7 +95,7 @@ class QSMThemeSerene {
 		}
 
 		// Retrieves our license key from the DB.
-		$settings	 = get_option( 'qsm_addon_theme_serene_settings', '' );
+		$settings    = get_option( 'qsm_addon_theme_serene_settings', '' );
 		$license_key = isset( $settings['license_key'] ) ? trim( $settings['license_key'] ) : '';
 
 		// Sets up the updater.
@@ -121,31 +121,31 @@ class QSMThemeSerene {
 		$settings   = array();
 		$settings[] = array(
 			'id'      => 'background_color',
-			'label'   => __( 'Background Color' ),
+			'label'   => __( 'Background Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
 			'default' => '#FFF',
 		);
 		$settings[] = array(
 			'id'      => 'primary_color',
-			'label'   => __( 'Primary Color' ),
+			'label'   => __( 'Primary Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
 			'default' => '#229ACD',
 		);
 		$settings[] = array(
 			'id'      => 'secondary_color',
-			'label'   => __( 'Secondary Color' ),
+			'label'   => __( 'Secondary Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
 			'default' => '#fff',
 		);
 		$settings[] = array(
 			'id'      => 'title_color',
-			'label'   => __( 'Question Color' ),
+			'label'   => __( 'Question Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
 			'default' => '#1D4759',
 		);
 		$settings[] = array(
 			'id'      => 'text_color',
-			'label'   => __( 'Text Color' ),
+			'label'   => __( 'Text Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
 			'default' => '#547482',
 		);

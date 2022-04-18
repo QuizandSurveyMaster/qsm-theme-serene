@@ -14,7 +14,7 @@ if ( ! function_exists( 'qsm_theme_quiz_serene_style' ) ) {
 		$featured_image       = get_option( "quiz_featured_image_$quiz_id" );
 		$randomness_order     = $qmn_quiz_options->randomness_order;
 		$saved_quiz_theme     = $mlwQuizMasterNext->theme_settings->get_active_quiz_theme_path( $quiz_id );
-		$quiz_settings        = maybe_unserialize( $qmn_quiz_options->quiz_settings );
+		$quiz_settings        = isset( $qmn_quiz_options->quiz_settings ) ? maybe_unserialize( $qmn_quiz_options->quiz_settings ) : array();
 		$get_saved_quiz_theme = isset( $quiz_settings['quiz_new_theme'] ) ? $quiz_settings['quiz_new_theme'] : '';
 		$progress_bar         = $qmn_quiz_options->progress_bar;
 		$folder_slug          = QSM_THEME_SLUG . $saved_quiz_theme;
@@ -38,23 +38,23 @@ if ( ! function_exists( 'qsm_theme_quiz_serene_style' ) ) {
 		}
 		$get_theme_settings = $color_data;
 		$css_root           = ':root {';
-		if ( isset( $get_theme_settings['background_color'] ) && $get_theme_settings['background_color'] != '' ) {
+		if ( isset( $get_theme_settings['background_color'] ) && '' !== $get_theme_settings['background_color'] ) {
 			$css_root .= '--background-color: ' . $get_theme_settings['background_color'] . ' !important;';
 		}
-		if ( isset( $get_theme_settings['primary_color'] ) && $get_theme_settings['primary_color'] != '' ) {
+		if ( isset( $get_theme_settings['primary_color'] ) && '' !== $get_theme_settings['primary_color'] ) {
 			$css_root .= '--primary-color: ' . $get_theme_settings['primary_color'] . ' !important;';
 		}
-		if ( isset( $get_theme_settings['secondary_color'] ) && $get_theme_settings['secondary_color'] != '' ) {
+		if ( isset( $get_theme_settings['secondary_color'] ) && '' !== $get_theme_settings['secondary_color'] ) {
 			$css_root .= '--secondary-color: ' . $get_theme_settings['secondary_color'] . ' !important;';
 		}
-		if ( isset( $get_theme_settings['title_color'] ) && $get_theme_settings['title_color'] != '' ) {
+		if ( isset( $get_theme_settings['title_color'] ) && '' !== $get_theme_settings['title_color'] ) {
 			$css_root .= '--title-color: ' . $get_theme_settings['title_color'] . ' !important;';
 		}
-		if ( isset( $get_theme_settings['text_color'] ) && $get_theme_settings['text_color'] != '' ) {
+		if ( isset( $get_theme_settings['text_color'] ) && '' !== $get_theme_settings['text_color'] ) {
 			$css_root .= '--text-color: ' . $get_theme_settings['text_color'] . ' !important;';
 		}
 		$css_root .= '}';
-		if ( isset( $get_theme_settings['primary_color'] ) && $get_theme_settings['primary_color'] != '' ) {
+		if ( isset( $get_theme_settings['primary_color'] ) && '' !== $get_theme_settings['primary_color'] ) {
 			$css_root .= '.qsm-svg-holder svg path {
 				fill : ' . $get_theme_settings['primary_color'] . ';
 			}';
@@ -68,7 +68,7 @@ if ( ! function_exists( 'serene_footer' ) ) {
 	function serene_footer( $return_display, $qmn_quiz_options, $qmn_array_for_variables ) {
 		global $mlwQuizMasterNext;
 		$saved_quiz_theme = $mlwQuizMasterNext->quiz_settings->get_setting( 'quiz_new_theme' );
-		$quiz_settings    = unserialize( $qmn_quiz_options->quiz_settings );
+		$quiz_settings    = isset( $qmn_quiz_options->quiz_settings ) ? maybe_unserialize( $qmn_quiz_options->quiz_settings ) : array();
 		return $return_display;
 	}
 }

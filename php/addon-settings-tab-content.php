@@ -25,12 +25,12 @@ function qsm_addon_theme_serene_register_stats_tabs() {
 function qsm_addon_theme_serene_addon_settings_tabs_content() {
 	global $mlwQuizMasterNext;
 	// If nonce is correct, update settings from passed input
-	if ( isset( $_POST['theme_serene_nonce'] ) && wp_verify_nonce( $_POST['theme_serene_nonce'], 'theme_serene' ) ) {
-		$settings	 = get_option( 'qsm_addon_theme_serene_settings', '' );
-		$license	 = isset( $settings['license_key'] ) ? trim( $settings['license_key'] ) : '';
+	if ( isset( $_POST['theme_serene_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash(  $_POST['theme_serene_nonce'] ) ), 'theme_serene' ) ) {
+		$settings    = get_option( 'qsm_addon_theme_serene_settings', '' );
+		$license     = isset( $settings['license_key'] ) ? trim( $settings['license_key'] ) : '';
 
-		$saved_license	 = isset( $_POST['license_key'] ) ? sanitize_text_field( wp_unslash( $_POST['license_key'] ) ) : '';
-		$new_settings	 = array( 'license_key' => $saved_license );
+		$saved_license   = isset( $_POST['license_key'] ) ? sanitize_text_field( wp_unslash( $_POST['license_key'] ) ) : '';
+		$new_settings    = array( 'license_key' => $saved_license );
 		// Checks to see if the license key has changed.
 		if ( $license !== $saved_license ) {
 			$activation = QSM_license::activate( $saved_license, 'serene' );
@@ -49,7 +49,7 @@ function qsm_addon_theme_serene_addon_settings_tabs_content() {
 	// Load settings.
 	$settings_data = wp_parse_args( get_option( 'qsm_addon_theme_serene_settings', array() ), array(
 		'license_key' => '',
-		)
+	)
 	);
 	// Show any alerts from saving
 	$mlwQuizMasterNext->alertManager->showAlerts();
@@ -57,12 +57,12 @@ function qsm_addon_theme_serene_addon_settings_tabs_content() {
 	<form action="" method="post">
 		<table class="form-table" style="width: 100%;">
 			<tr valign="top">
-				<th scope="row"><label for="license_key"><?php _e( 'Addon License Key', 'qsm-theme-serene' ); ?></label></th>
-				<td><input type="text" name="license_key" id="license_key" value="<?php echo $settings_data['license_key']; ?>"></td>
+				<th scope="row"><label for="license_key"><?php esc_html_e( 'Addon License Key', 'qsm-theme-serene' ); ?></label></th>
+				<td><input type="text" name="license_key" id="license_key" value="<?php echo esc_attr( $settings_data['license_key'] ); ?>"></td>
 			</tr>
 		</table>
 		<?php wp_nonce_field( 'theme_serene', 'theme_serene_nonce' ); ?>
-		<button class="button-primary"><?php _e( 'Save Changes', 'qsm-theme-serene' ); ?></button>
+		<button class="button-primary"><?php esc_html_e( 'Save Changes', 'qsm-theme-serene' ); ?></button>
 	</form>
 	<?php
 }
