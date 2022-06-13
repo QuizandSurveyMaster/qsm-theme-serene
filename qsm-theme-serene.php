@@ -2,7 +2,7 @@
 /**
  * Plugin Name: QSM Theme - Serene
  * Plugin URI: https://quizandsurveymaster.com
- * Description: Adds serene theme for Quiz Master Quizzes
+ * Description: Free quiz theme for Quiz & Survey Master plugin
  * Author: QSM Team
  * Author URI: https://quizandsurveymaster.com
  * Version: 1.0.0
@@ -123,7 +123,7 @@ class QSMThemeSerene {
 			'id'      => 'background_color',
 			'label'   => __( 'Background Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
-			'default' => '#FFF',
+			'default' => '#ffffff',
 		);
 		$settings[] = array(
 			'id'      => 'primary_color',
@@ -135,7 +135,7 @@ class QSMThemeSerene {
 			'id'      => 'secondary_color',
 			'label'   => __( 'Secondary Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
-			'default' => '#fff',
+			'default' => '#ffffff',
 		);
 		$settings[] = array(
 			'id'      => 'title_color',
