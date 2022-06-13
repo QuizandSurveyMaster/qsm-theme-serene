@@ -123,7 +123,7 @@ class QSMThemeSerene {
 			'id'      => 'background_color',
 			'label'   => __( 'Background Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
-			'default' => '#FFF',
+			'default' => '#ffffff',
 		);
 		$settings[] = array(
 			'id'      => 'primary_color',
@@ -135,7 +135,7 @@ class QSMThemeSerene {
 			'id'      => 'secondary_color',
 			'label'   => __( 'Secondary Color', 'qsm-theme-serene' ),
 			'type'    => 'color',
-			'default' => '#fff',
+			'default' => '#ffffff',
 		);
 		$settings[] = array(
 			'id'      => 'title_color',
