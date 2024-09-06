@@ -31,6 +31,7 @@
   {
     display: flex;
     flex-direction: inherit;
+    justify-content: flex-start;
   }
   .quiz_theme_qsm-theme-serene.qmn_quiz_container .qsm-save-quiz, .quiz_theme_qsm-theme-serene.qmn_quiz_container .qsm-resume-quiz, .quiz_theme_qsm-theme-serene .qmn_results_page .btn-reload-quiz
   {
@@ -39,7 +40,7 @@
   .quiz_theme_qsm-theme-serene .qmn_btn.mlw_qmn_quiz_link.mlw_previous
   {
     text-align: left;
-    margin-top: -24px;
+    margin-top: -25px;
   }
   .quiz_theme_qsm-theme-serene.qmn_quiz_container .qmn_btn
   {
@@ -48,7 +49,7 @@
   .quiz_theme_qsm-theme-serene .qmn_btn.mlw_qmn_quiz_link.mlw_next {
     position: absolute;
     left: 50%;
-    margin-top: -30px;
+    margin-top: -25px;
   }
 
   .quiz_theme_qsm-theme-serene.qmn_quiz_container .quiz_begin .qmn_btn.mlw_qmn_quiz_link.mlw_next
@@ -63,7 +64,7 @@
 @media only screen and (max-width: 767px) {
   .qsm-svg-holder #svg-3 {
 
-    bottom: 30px;
+    bottom: 22px;
   }
   .qsm-svg-holder #svg-1 {
     bottom: 17px;
