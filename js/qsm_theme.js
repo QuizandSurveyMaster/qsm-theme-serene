@@ -5,13 +5,13 @@ logic_enabled = true;
 no_featured_image = false;
 
 jQuery(document).ready(function () {
-
+	jQuery('#mlw_qmn_timer').hide();
 	if (typeof qmn_quiz_data_new !== 'undefined') {
 		jQuery.each(qmn_quiz_data_new, function (quiz_id, data) {
 			if (data.length > 0) {
 				logic_enabled = true;
 			}
-		})
+		});
 	}
 	jQuery('.quiz_theme_qsm-theme-serene').each(function () {
 		var quiz_id = jQuery(this).find('.qmn_quiz_id').val();
@@ -23,13 +23,12 @@ jQuery(document).ready(function () {
 	jQuery('.ui-slider-handle.ui-state-default ').css('left', '50%');
 	jQuery('.qsm_total_questions').html('<span class="que-number">' + jQuery('#total_questions').val() + '</span>' + '<span class="que-text"> Questions</span>');
 	if (typeof qsm_theme_serene_object.featured_image !== 'undefined' && qsm_theme_serene_object.featured_image.trim().length > 0) {
-		jQuery('.quiz_theme_qsm-theme-serene.qsm_auto_pagination_enabled').css('background-image', 'url(' + qsm_theme_serene_object.featured_image + ')').css('background-size', 'cover');
-		jQuery('.quiz_theme_qsm-theme-serene:not(.qsm_auto_pagination_enabled) .quiz_section.quiz_begin').prepend('<img src=' + qsm_theme_serene_object.featured_image + '>');
+		jQuery('.quiz_theme_qsm-theme-serene .quiz_section.quiz_begin').css('background-image', 'url(' + qsm_theme_serene_object.featured_image + ')').css('background-size', 'cover');
 	} else {
 		no_featured_image = true;
 	}
 
-	jQuery('.quiz_theme_qsm-theme-serene:is(.qsm_auto_pagination_enabled) .qsm-auto-page-row.quiz_begin,.quiz_theme_qsm-theme-serene:not(.random) .qsm-auto-page-row.quiz_begin').last().append(`
+	jQuery('.quiz_theme_qsm-theme-serene .qsm-auto-page-row.quiz_begin,.quiz_theme_qsm-theme-serene:not(.random) .qsm-auto-page-row.quiz_begin, .quiz_theme_qsm-theme-serene .qsm-page .quiz_begin').last().append(`
 
 		<div class='qsm-svg-holder'><svg id="svg-3" viewBox="0 0 790 239" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M790 72.5001V239H0.0661621V10.5001C0.0661621 10.5001 72.5 -17.2314 196 20.0002C319.5 57.2317 597 155.47 686 128.5C775 101.53 790 72.5001 790 72.5001Z" fill="url(#paint0_linear)"/>
@@ -47,28 +46,24 @@ jQuery(document).ready(function () {
 		</div>
 		`);
 
-	jQuery('.quiz_theme_qsm-theme-serene:not(.qsm_auto_pagination_enabled)').append(`<div class='qsm-svg-holder'>
-			<svg id="svg-1" viewBox="0 0 791 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M790.003 12.3409V174.571H0.0699463V36.3009C0.0699463 36.3009 50 105.186 201.5 115.169C353 125.153 488 37.8872 601.5 12.3407C715 -13.2057 790.003 12.3409 790.003 12.3409Z" fill="#229ACD"/>
-			</svg>
+	jQuery('.quiz_theme_qsm-theme-serene:not(.qsm_auto_pagination_enabled) .quiz_section:not(.quiz_begin)').append(`<div class='qsm-svg-holder'>
+			<svg id="svg-1" viewBox="0 0 791 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M790.003 12.3409V300H0.0699463V36.3009C0.0699463 36.3009 50 105.186 201.5 115.169C353 125.153 488 37.8872 601.5 12.3407C715 -13.2057 790.003 12.3409 790.003 12.3409Z" fill="#229ACD"/>
+</svg>
+
 			<svg id="svg-2" viewBox="0 0 791 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M0.00280762 0.0715332H790.003V13C790.003 29.5685 776.571 43 760.003 43H30.0028C13.4342 43 0.00280762 29.5685 0.00280762 12.9999V0.0715332Z" fill="#229ACD" />
 			</svg></div>
 			`);
 
 	jQuery('.quiz_theme_qsm-theme-serene .qsm-auto-page-row:not(.quiz_begin)').append(`<div class='qsm-svg-holder'>
-			<svg id="svg-1" viewBox="0 0 791 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M790.003 12.3409V174.571H0.0699463V36.3009C0.0699463 36.3009 50 105.186 201.5 115.169C353 125.153 488 37.8872 601.5 12.3407C715 -13.2057 790.003 12.3409 790.003 12.3409Z" fill="#229ACD"/>
-			</svg>
+			<svg id="svg-1" viewBox="0 0 791 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M790.003 12.3409V300H0.0699463V36.3009C0.0699463 36.3009 50 105.186 201.5 115.169C353 125.153 488 37.8872 601.5 12.3407C715 -13.2057 790.003 12.3409 790.003 12.3409Z" fill="#229ACD"/>
+</svg>
+
 			<svg id="svg-2" viewBox="0 0 791 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M0.00280762 0.0715332H790.003V13C790.003 29.5685 776.571 43 760.003 43H30.0028C13.4342 43 0.00280762 29.5685 0.00280762 12.9999V0.0715332Z" fill="#229ACD" />
 			</svg></div>
-			`);
-	jQuery('.quiz_theme_qsm-theme-serene.qsm-quiz-container:not(.qsm_auto_pagination_enabled)').append(`<div class='qsm-svg-holder'>
-			<svg id="svg-6" viewBox="0 0 791 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M790.003 12.3409V174.571H0.0699463V36.3009C0.0699463 36.3009 50 105.186 201.5 115.169C353 125.153 488 37.8872 601.5 12.3407C715 -13.2057 790.003 12.3409 790.003 12.3409Z" fill="#229ACD"/>
-			</svg>
-
 			`);
 
 	if (parseInt(qsm_theme_serene_object.randomness_order) != 0 && jQuery('.quiz_theme_qsm-theme-serene').find('.qsm-apc-1').length == 0) {
@@ -151,7 +146,6 @@ jQuery(document).ready(function () {
 		function (e) {
 			jQuery(this).removeClass('file-hover');
 			jQuery(this).find('.serene-file-upload-name').html(e.originalEvent.dataTransfer.files[0].name).fadeIn();
-			// jQuery(this).find('.serene-file-upload-error').fadeOut();
 			if (e.originalEvent.dataTransfer) {
 				if (e.originalEvent.dataTransfer.files.length) {
 					e.preventDefault();
@@ -178,69 +172,39 @@ jQuery(document).ready(function () {
 	});
 
 	// Next page
-	jQuery(document).on('qsm_next_button_click_after', function(event, quiz_id){
-		current = jQuery('.current_page_hidden').val();
+	jQuery(document).on('qsm_next_button_click_after', function(event, quiz_id) {
+		let current = jQuery('.current_page_hidden').val();
+		let total;
+	
 		if (qmn_quiz_data[quiz_id].hasOwnProperty('pagination')) {
 			total = jQuery('.total_pages_hidden').val();
-			if (qmn_quiz_data[quiz_id].disable_first_page == 1) {
-				if (3 == current) {
-					if (jQuery('.qsm-serene-section-info').length == 0) {
-						addHeader(quiz_id);
-
-					}
-				}
-			} else {
-				if (2 == current) {
-					if (jQuery('.qsm-serene-section-info').length == 0) {
-						addHeader(quiz_id);
-
-					}
+			if ((qmn_quiz_data[quiz_id].disable_first_page == 1 && current == 3) || (current == 2)) {
+				if (jQuery('.qsm-serene-section-info').length === 0) {
+					addHeader(quiz_id);
 				}
 			}
 		} else {
 			total = Object.keys(qmn_quiz_data[quiz_id].qpages).length;
-			if (1 == qmn_quiz_data[quiz_id].contact_info_location) {
+	
+			if (qmn_quiz_data[quiz_id].contact_info_location == 1) {
 				total++;
 			}
-			if (1 == current) {
-				if (jQuery('.qsm-serene-section-info').length == 0) {
-					addHeader(quiz_id);
-				}
+	
+			if (current == 1 && jQuery('.qsm-serene-section-info').length === 0) {
+				addHeader(quiz_id);
 			}
 		}
-
+	
 		checkProgressBar(current, total, quiz_id);
 		updateTitle(quiz_id);
-
-		if (qmn_quiz_data[quiz_id].hasOwnProperty('pagination')) {
-			if(qmn_quiz_data[quiz_id].hasOwnProperty('first_page') && qmn_quiz_data[quiz_id].first_page){
-				if (qmn_quiz_data[quiz_id].hasOwnProperty('advanced_timer') && qmn_quiz_data[quiz_id].hasOwnProperty('timer_limit_val') && qmn_quiz_data[quiz_id].timer_limit_val > 0 ) {
-					var start_timer = parseInt(qmn_quiz_data[quiz_id].advanced_timer.start_timer_page);
-					if(jQuery('#quizForm' + quiz_id).closest('.qmn_quiz_container').find('.qmn_pagination > .slide_number_hidden').length > 0) {
-						if (jQuery('#quizForm' + quiz_id).closest('.qmn_quiz_container').find('.qmn_pagination > .slide_number_hidden').val() == start_timer && 'right_bottom_timer' === qmn_quiz_data[quiz_id].advanced_timer.timer_design ) {
-							initTimer(quiz_id);
-						}
-					}
-				}
+	
+		if (qmn_quiz_data[quiz_id].hasOwnProperty('first_page') && qmn_quiz_data[quiz_id].first_page) {
+			if (qmn_quiz_data[quiz_id].hasOwnProperty('timer_limit_val') && qmn_quiz_data[quiz_id].timer_limit_val > 0) {
+					initTimer(quiz_id);
 			}
 		}
-
-		if (!qmn_quiz_data[quiz_id].hasOwnProperty('pagination')) {
-			if(qmn_quiz_data[quiz_id].hasOwnProperty('first_page') && qmn_quiz_data[quiz_id].first_page){
-				if (qmn_quiz_data[quiz_id].hasOwnProperty('advanced_timer') && qmn_quiz_data[quiz_id].hasOwnProperty('timer_limit_val') && qmn_quiz_data[quiz_id].timer_limit_val > 0 ) {
-					var start_timer = parseInt(qmn_quiz_data[quiz_id].advanced_timer.start_timer_page);
-					if(jQuery('#quizForm' + quiz_id).closest('.qmn_quiz_container').find('.qmn_pagination > .current_page_hidden').length > 0) {
-						if (jQuery('#quizForm' + quiz_id).closest('.qmn_quiz_container').find('.qmn_pagination > .current_page_hidden').val() == start_timer && 'right_bottom_timer' === qmn_quiz_data[quiz_id].advanced_timer.timer_design  ) {
-							initTimer(quiz_id);
-						}
-					}
-				}
-
-			}
-		}
-
 	});
-
+	
 	// Previews page
 	jQuery(document).on('qsm_previous_button_click_after', function (event, quiz_id) {
 		current = jQuery('.current_page_hidden').val();
@@ -285,8 +249,7 @@ function addHeader(quiz_id) {
 		sereneSubmit = "<a class='qmn_btn mlw_qmn_quiz_link qsm-theme-serene-submit-btn' href='#' style='display:none;'>Submit</a>";
 		jQuery('.quiz_theme_qsm-theme-serene .qmn_pagination').append(sereneSubmit);
 	}
-
-	if(qmn_quiz_data[quiz_id].hasOwnProperty('first_page') && qmn_quiz_data[quiz_id].first_page == false && qmn_quiz_data[quiz_id].hasOwnProperty('advanced_timer') && qmn_quiz_data[quiz_id].hasOwnProperty('timer_limit_val') && qmn_quiz_data[quiz_id].timer_limit_val > 0 ) {
+	if(qmn_quiz_data[quiz_id].hasOwnProperty('first_page') && qmn_quiz_data[quiz_id].first_page == false && qmn_quiz_data[quiz_id].hasOwnProperty('timer_limit_val') && qmn_quiz_data[quiz_id].timer_limit_val > 0 ) {
 		initTimer(quiz_id);
 	}
 
@@ -414,6 +377,7 @@ function startTimer(quiz_id, seconds) {
 	}
 	start_quiz++;
 }
+
 
 function initTimer(quiz_id) {
 
